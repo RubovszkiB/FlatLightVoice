@@ -10,24 +10,39 @@
     <style>
         body {
             background-color: #f0f0f0;
-            color: #fff;
-        }
-        .navbar {
-            background-color: #555555;
-        }
-        .navbar-dark .navbar-nav .nav-link {
-            color: #fff;
-        }
-        .navbar-dark .navbar-nav .nav-link:hover {
-            background-color: #4CAF50;
-            padding: 5px 10px;
-            border-radius: 5px;
+            color: #333;
         }
         /* Közösségi média ikonok stílusai */
         .social-icons {
             font-size: 24px;
             margin-right: 10px;
             cursor: pointer;
+        }
+        /* Tartalmi rész háttere */
+        .content-background {
+            background-image: url('https://staticg.sportskeeda.com/wp-content/uploads/2016/08/cr71-1472215082-800.jpg'); /* Háttérkép beállítása */
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+        /* Tartalmi rész stílusai */
+        .content-section {
+            background-color: rgba(255, 255, 255, 0.8); /* Fehér áttetsző hátteret ad a tartalomnak */
+            padding: 30px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+        .rounded-box {
+            background-color: #007bff;
+            color: pink;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            cursor: pointer;
+        }
+        .rounded-box:hover {
+            background-color: pink;
+            color: #007bff;
         }
     </style>
 </head>
@@ -41,51 +56,63 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="index.html">Főoldal</a>
+                    <a class="nav-link" href="#eventSection">Esemény</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="rolunk.html">Rólunk</a>
+                    <a class="nav-link" href="referencia.html">Eddigi munkáink</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="referencia.html">Referencia munkák</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="elerhetosegek.html">Elérhetőségek</a>
-                </li>
-                <!-- Közösségi média navigációs menü -->
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="socialMediaDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Közösségi média
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="socialMediaDropdown">
-                        <a class="dropdown-item" href="https://www.tiktok.com/" target="_blank">TikTok</a>
-                        <a class="dropdown-item" href="https://www.instagram.com/" target="_blank">Instagram</a>
-                        <a class="dropdown-item" href="https://www.facebook.com/" target="_blank">Facebook</a>
-                    </div>
+                    <a class="nav-link" href="mailto:example@gmail.com">Küldj üzenetet egy kattintással!</a>
                 </li>
             </ul>
-            <!-- Közösségi média ikonok -->
-            <div class="social-icons" onclick="window.open('https://www.tiktok.com/', '_blank')">
-                <img src="tiktok-icon.svg" alt="TikTok">
-            </div>
-            <div class="social-icons" onclick="window.open('https://www.instagram.com/', '_blank')">
-                <img src="instagram-icon.svg" alt="Instagram">
-            </div>
-            <div class="social-icons" onclick="window.open('https://www.facebook.com/', '_blank')">
-                <img src="facebook-icon.svg" alt="Facebook">
-            </div>
         </div>
     </nav>
 
     <!-- Tartalom -->
-    <div class="container mt-4">
-        <h1>Főoldal tartalma</h1>
-        <p>Ez a főoldal tartalma.</p>
+    <div class="container content-background mt-4">
+        <h1 class="text-center">Főoldal tartalma</h1>
+        
+        <!-- Reszponzív tartalmi rész -->
+        <div class="row">
+            <div class="col-md-4 mb-4">
+                <div class="rounded-box" onclick="scrollToEvent()">
+                    <h3>Esemény</h3>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <a href="referencia.html">
+                    <div class="rounded-box">
+                        <h3>Eddigi munkáink</h3>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-4 mb-4">
+                <a href="mailto:example@gmail.com">
+                    <div class="rounded-box">
+                        <h3>Küldj üzenetet egy kattintással!</h3>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Esemény rész -->
+    <div class="container content-section" id="eventSection">
+        <h2>Esemény rész</h2>
+        <p>Itt található az esemény rész leírása.</p>
     </div>
 
     <!-- Bootstrap JavaScript beillesztése (jQuery és Popper.js szükséges) -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"></script>
+
+    <!-- JavaScript a navigációs funkciókhoz -->
+    <script>
+        function scrollToEvent() {
+            const eventSection = document.getElementById('eventSection');
+            eventSection.scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
 </body>
 </html>
