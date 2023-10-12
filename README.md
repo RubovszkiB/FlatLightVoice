@@ -4,7 +4,7 @@
 
 
 
-2023.10.12 index.html caruseles rak, a kepekre beszuras, ezen majd meg otletelunk infon unatkoztam es ezt csinaltam
+2023.10.12 index.html caruseles rak, a kepekre beszuras, ezen majd meg otletelunk,  infon unatkoztam es ezt csinaltam
 
 
 
