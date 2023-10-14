@@ -37,5 +37,69 @@
             }
         }
     </script>
+    <!DOCTYPE html>
+<html>
+<head>
+    <title>Lámpa ID Generálás</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            text-align: center;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        #message {
+            margin-top: 10px;
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Lámpa ID Generálás</h1>
+        <form id="lampForm">
+            <label for="lampID">Lámpa ID (3 számjegy):</label>
+            <input type="text" id="lampID" maxlength="3">
+            <button type="button" onclick="generateLampID()">Generálás és Mentés</button>
+        </form>
+        
+        <div id="message"></div>
+    </div>
+
+    <script>
+        function generateLampID() {
+            var newID = document.getElementById("lampID").value;
+            if (newID.length === 3 && !isNaN(newID)) {
+                var formData = new FormData();
+                formData.append('lampID', newID);
+                fetch('save_lamp_id.php', {
+                    method: 'POST',
+                    body: formData
+                })
+                .then(response => response.text())
+                .then(data => {
+                    if (data === 'success') {
+                        document.getElementById("message").innerText = 'Lámpa ID elmentve.';
+                    } else {
+                        document.getElementById("message").innerText = 'Hiba történt a mentés során.';
+                    }
+                });
+            } else {
+                document.getElementById("message").innerText = 'Érvénytelen ID. Adj meg 3 számjegyet.';
+            }
+        }
+    </script>
+</body>
+</html>
+
 </body>
 </html>
